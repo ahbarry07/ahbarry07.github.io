@@ -1,0 +1,81 @@
+
+body{
+    background-image: url("../images/bac.jpeg");
+    background-attachment: fixed;
+    background-repeat: round;
+}
+
+.form{
+    position: relative;
+    overflow: hidden;
+    width: 500px;
+    max-width: 100%;
+    min-height: 300px;
+    margin: 15px;
+    padding-top: 10px;
+}
+
+.name, .password{
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+label{
+    display: inline-block;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: hsl(0, 0%, 60%);
+}
+
+#email, #password{
+    width: 100%;
+    background: transparent;
+    color: hsl(0, 0%, 75%);
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border: none;
+        border-bottom-width: medium;
+        border-bottom-style: none;
+        border-bottom-color: currentcolor;
+    border-bottom: solid 1px hsl(0, 0%, 50%);
+    font-weight: 100;
+    font-size: 16px;
+    font-variant: normal;
+   
+}
+
+#signIn{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    order: 1;
+    background: rgb(0, 99, 249);
+    float: right;
+}
+
+#signIn:hover{
+    background-color: hsl(260, 100%, 70%);
+}
+
+button{
+    border-radius: 2px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 15px;
+    font-weight: 300;
+    border: none;
+    width: 160px;
+    cursor: pointer;
+}
+
+input:focus {
+    outline: none;
+    border: none; /* Pour enlever la bordure */
+}
