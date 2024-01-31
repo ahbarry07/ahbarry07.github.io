@@ -31,7 +31,7 @@ export  const graphqlQuery = `{
     skills : transaction(
         where:{_or: {type: {_like: "skill_%"}}}
         distinct_on:[type]
-        order_by:[{type: desc}, {amount: desc}]){
+        order_by:[{type: asc}, {amount: desc}]){
             amount
             type
     },

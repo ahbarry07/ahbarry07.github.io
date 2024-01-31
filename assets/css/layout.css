@@ -32,19 +32,20 @@ body {
 
 #portfolio-header {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   align-items: center;
+  justify-content: center;
 }
 
 #portfolio-header-image-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  flex-basis: 50%;
+  flex-basis: 35%;
 }
 
 .portfolio-header-image {
-  width: 100%;
+  width: 550px;
   height: auto;
 }
 
