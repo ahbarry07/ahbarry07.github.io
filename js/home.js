@@ -1,4 +1,6 @@
+import { drawChartAttemps, drawChartEvolution } from "./graph.js";
 import { loginPage } from "./login.js"
+import { getAttemps, simulateEvolution } from "./utils.js";
 
 let homeHTML = `
     <div class="navbar">
@@ -46,12 +48,23 @@ let homeHTML = `
                     </div>    
                 </div>
             </div>
+        </div>     
+        <div class="second-bloc">
             <div class="skill-div">
                 <h1>Best Skills </h1>
                 <div class="skills">
                 </div> 
-            </div>      
-        </div>     
+            </div>
+        </div>
+        
+        <div class="graph1">
+            <h1> Nombre de tentative par exercice</h1>          
+            <div id="chart_div" style="width:10%; height:300px"></div>
+        </div>   
+        <div class="graph2">
+            <h1> Progression en fonction du temps</h1>        
+            <div id="chart_div2" style="height:500px"></div>
+        </div>    
     </div>
 `
 
@@ -60,7 +73,7 @@ export function homePage(dataQuery={}){
     let container = document.getElementById("container")
     container.style.display = "block"
     container.innerHTML = homeHTML
-
+    
     let userInfo = dataQuery.data.user[0]
     document.getElementById("name").textContent = `${userInfo.firstName} ${userInfo.lastName}`
     document.querySelector(".main-title").textContent = `Hey, I'm @${userInfo.login}.`
@@ -90,7 +103,7 @@ export function homePage(dataQuery={}){
     }
     //Pour les audits
     let auditsDiv = document.querySelector(".audit")
-    let audits = dataQuery.data.audit
+    let audits = userInfo.auditList
     if(audits.length != 0){
         for(let audit of audits){
             let block = document.createElement("div")
@@ -131,6 +144,13 @@ export function homePage(dataQuery={}){
     }else{
         skillsDiv.innerHTML = `<h1 style="color: red; text-align: center"> There are no skills </h1>`
     }
+    //Pour les graphes
+    let attemps = getAttemps(dataQuery.data.attemps)
+    drawChartAttemps(attemps)//Pour le graphique des tentatives par exercices
+    
+    //Pour le graphique de la progression
+    let evolution = simulateEvolution(dataQuery.data.xpProgression)
+    drawChartEvolution(evolution)
 
     document.getElementById("logout").addEventListener("click", (event) =>{
         event.preventDefault()

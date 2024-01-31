@@ -7,20 +7,24 @@ export function loginPage(){
     container.style = ` display: flex; align-content: center; align-items: center; justify-content:center; padding: 0 50px; height: 100vh; padding-top: 20px;`
 
     container.innerHTML = `
-        <p id="alert"> </p>
-        <div class="form">
-            <form action="" method="post">
-                <div class="name">
-                    <label for="">Email or Username</label>
-                    <input type="text" name="email" id="email" required>
+        <div class="login">
+            <p id="alert"> </p>
+            <div class="z01">
+                <div class="form">
+                    <form action="" method="post">
+                        <div class="name">
+                            <label for="">Email or Username</label>
+                            <input type="text" name="email" id="email" required>
+                        </div>
+                        <div class="password">
+                            <label for="">Password</label>
+                            <input type="password" name="password" id="password" required>
+                        </div>
+                        <button id="signIn">SIGN IN</button>
+                    </form>
                 </div>
-                <div class="password">
-                    <label for="">Password</label>
-                    <input type="password" name="password" id="password" required>
-                </div>
-                <button id="signIn">SIGN IN</button>
-            </form>
-        </div>
+            </div>    
+        </div>    
     `
 
     document.getElementById("signIn").addEventListener("click", (event) =>{
@@ -46,7 +50,7 @@ export function loginPage(){
                     let result = fetchGraphQLData(jwtToken, graphqlQuery)
                     result.then(dataQuery =>{
                         homePage(dataQuery)
-                        console.log("User Info", dataQuery.data);
+                        console.log("User Info", dataQuery);
                     })
                 })
                 console.log("Authentification reussie", response);

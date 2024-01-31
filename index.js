@@ -1,6 +1,6 @@
-import { homePage} from "./home.js"
-import { loginPage, fetchGraphQLData } from "./login.js"
-import { graphqlQuery } from "./query.js"
+import { homePage} from "./js/home.js"
+import { loginPage, fetchGraphQLData } from "./js/login.js"
+import { graphqlQuery } from "./js/query.js"
 
 loginPage()
 
