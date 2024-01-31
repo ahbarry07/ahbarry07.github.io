@@ -77,7 +77,7 @@ export function homePage(dataQuery={}){
     let userInfo = dataQuery.data.user[0]
     document.getElementById("name").textContent = `${userInfo.firstName} ${userInfo.lastName}`
     document.querySelector(".main-title").textContent = `Hey, I'm @${userInfo.login}.`
-    document.getElementById("my-work-link").href = `https://learn.zone01dakar.sn/git/${userInfo.login}`
+    document.getElementById("my-work-link").href = `#`
 
     let xpValue = Math.round(dataQuery.data.xp.aggregate.sum.amount / 1000) || 0
     document.querySelector(".xp-value").innerHTML = `<p class="value-xp">${xpValue} <span class="kb">kB<span><p>`
