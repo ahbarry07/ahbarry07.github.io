@@ -50,15 +50,12 @@ export function loginPage(){
                     let result = fetchGraphQLData(jwtToken, graphqlQuery)
                     result.then(dataQuery =>{
                         homePage(dataQuery)
-                        console.log("User Info", dataQuery);
                     })
                 })
-                console.log("Authentification reussie", response);
             }else{
                 response.json().then(data => {
                     document.getElementById("alert").textContent = data.error
                 })
-                console.log("Erreur d'authentification", response.json());
             }
         })
     })

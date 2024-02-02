@@ -39,8 +39,6 @@ export function simulateEvolution(xpByProject) {
         totalAmount += entry.amount;
         evolution[date] = {date: date, kb: Math.round(totalAmount/1000)}; // Stocker le montant cumulé pour cette date
     });
-
-    // console.log("TEST", fillMissingMonths(evolution));
     
     return Object.values((evolution));
 }

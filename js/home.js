@@ -69,7 +69,7 @@ let homeHTML = `
 `
 
 export function homePage(dataQuery={}){
-    console.log("dataquery", dataQuery);
+   
     let container = document.getElementById("container")
     container.style.display = "block"
     container.innerHTML = homeHTML
